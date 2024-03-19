@@ -39,7 +39,6 @@ function computerSelection() {
 }
 
 
-
 function playRound(playerSelection, computerSelection) {
   if (playerSelection == computerSelection) {
     return "Tie! " + playerSelection.toUpperCase() + " is the same as " + computerSelection.toUpperCase() + "!";
@@ -50,6 +49,19 @@ function playRound(playerSelection, computerSelection) {
   else {
     return "You Lose! CPU Wins! " + computerSelection.toUpperCase() + " BEATS " + playerSelection.toUpperCase() + "!";
   }
+
+}
+
+let playerScore;
+let cpuScore;
+
+function Score()
+{
+  
+}
+
+for(let i = 0; i < 5; i++)
+{
 
 }
 
