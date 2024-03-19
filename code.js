@@ -8,8 +8,7 @@ function playerSelection() {
     answer = answer.toLowerCase();
     // console.log(answer);
 
-    if (answer === "rock" || answer === "paper" || answer === "scissors") 
-    {
+    if (answer === "rock" || answer === "paper" || answer === "scissors") {
       vaild = true;
 
     }
@@ -17,7 +16,7 @@ function playerSelection() {
       alert("Try AGAIN! 😡😡")
     }
 
-    
+
   }
   return answer;
 
@@ -52,21 +51,53 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-let playerScore;
-let cpuScore;
+let gameRound;
+let playerScore = 0;
+let cpuScore = 0;
+let result;
 
-function Score()
-{
-  
+
+function Rounds() {
+  let rounds;
+  let vaild = false;
+  while (!vaild) {
+    rounds = prompt("How many round do you want to play?")
+
+    if (rounds % 1 === 0) {
+      vaild = true;
+    }
+    else {
+      console.log("Try again");
+    }
+  }
+
+  for (let i = 0; i < rounds; i++) {
+    gameRound = i + 1
+
+    result = playRound(playerSelection(), computerSelection())
+
+    if (result.includes("Win!")) {
+      playerScore++;
+    } else if (result.includes("Lose!")) {
+      cpuScore++;
+    }
+    else {
+      playerScore++;
+      cpuScore++;
+    }
+
+    console.log("Game: " + gameRound + " " + result);
+    if (gameRound == rounds) {
+      console.log("Player Score: " + playerScore + " CPU Score: " + cpuScore);
+    }
+  }
 }
 
-for(let i = 0; i < 5; i++)
-{
-
-}
+Rounds();
 
 
-console.log(playRound(playerSelection(), computerSelection()));
+
+
 
 
 
